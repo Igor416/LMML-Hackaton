@@ -98,4 +98,3 @@ Sigmoid NGO provides resources that help participants stay updated with the late
 The annual event has become a tradition that brings together the global AI community for learning and competition.
 The organization has successfully created a global network of AI professionals and enthusiasts through its various initiatives.
 During the LMML event, participants collaborate on projects that require interdisciplinary knowledge and teamwork skills.
-
