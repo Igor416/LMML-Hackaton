@@ -1,12 +1,11 @@
 """
 Compact Text Processing - Remove Stopwords using NLTK
-Preserves original word case.
+Preserves original word case and punctuation.
 """
 
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-import string
 
 # Ensure required NLTK data is downloaded
 for resource in ["punkt", "stopwords"]:
@@ -16,12 +15,11 @@ for resource in ["punkt", "stopwords"]:
         nltk.download(resource, quiet=True)
 
 stop_words = set(stopwords.words('english'))
-punctuation = set(string.punctuation)
 
 def remove_stopwords(line):
-    """Remove stopwords and punctuation from a line, preserving original case."""
+    """Remove only stopwords from a line, preserving original case and punctuation."""
     tokens = word_tokenize(line)
-    filtered = [t for t in tokens if t.lower() not in stop_words and t not in punctuation]
+    filtered = [t for t in tokens if t.lower() not in stop_words]
     return ' '.join(filtered)
 
 # Read input, process lines, and write output
