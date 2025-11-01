@@ -4,6 +4,7 @@ Preserves original word case and punctuation.
 """
 
 import nltk
+import string
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
@@ -20,7 +21,17 @@ def remove_stopwords(line):
     """Remove only stopwords from a line, preserving original case and punctuation."""
     tokens = word_tokenize(line)
     filtered = [t for t in tokens if t.lower() not in stop_words]
-    return ' '.join(filtered)
+    
+    # Join tokens, but don't add space before punctuation
+    result = []
+    for i, token in enumerate(filtered):
+        if i > 0 and token in string.punctuation:
+            # Attach punctuation directly to previous token (no space)
+            result[-1] += token
+        else:
+            result.append(token)
+    
+    return ' '.join(result)
 
 # Read input, process lines, and write output
 with open('input.txt', 'r', encoding='utf-8') as f:
