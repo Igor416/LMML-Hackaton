@@ -42,7 +42,7 @@ def remove_stopwords_from_line(line):
         return ''
     
     # Tokenize the line into words
-    tokens = word_tokenize(line)
+    tokens = word_tokenize(line.lower())
     
     # Get English stopwords
     stop_words = set(stopwords.words('english'))
